@@ -8,7 +8,9 @@ const port = 3000;
 
 const server = createServer(app);
 const wss = new WebSocket.Server({ server });
-
+app.get('/',function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
 const clients = new Set();
 let timestamp = 0;
 wss.on('connection', function(ws) {
